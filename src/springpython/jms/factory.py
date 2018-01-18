@@ -116,10 +116,11 @@ class WebSphereMQConnectionFactory(DisposableObject):
         # WMQ >= 7.0 must not use the mcd folder
         self.needs_mcd = needs_mcd
 
+        logging.basicConfig()
         self.logger = logging.getLogger("springpython.jms.factory.WebSphereMQConnectionFactory")
 
-        import CMQC
         import pymqi
+        from pymqi import CMQC
 
         self.CMQC = CMQC
         self.mq = pymqi
